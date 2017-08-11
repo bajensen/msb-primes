@@ -1,0 +1,117 @@
+<html>
+<head>
+    <script src="highcharts/code/highcharts.js"></script>
+    <script src="highcharts/code/highcharts-more.js"></script>
+    <script src="highcharts/code/modules/exporting.js"></script>
+</head>
+<body>
+    <div id="container" style="width: 100%; height: 100%"></div>
+<script>
+//    var laptopData = [{"n":1000,"shane":{"duration":1832294,"min":187259,"max":1084048,"mean":458073.5,"median":280493.5},"brian":{"duration":761284,"min":73087,"max":281284,"mean":190321,"median":203456.5},"brendon":{"duration":797234,"min":143802,"max":353975,"mean":199308.5,"median":149728.5}},{"n":2000,"shane":{"duration":416000,"min":99161,"max":113778,"mean":104000,"median":101530.5},"brian":{"duration":535704,"min":92840,"max":196345,"mean":133926,"median":123259.5},"brendon":{"duration":1912492,"min":87309,"max":1094320,"mean":478123,"median":365431.5}},{"n":4000,"shane":{"duration":1222319,"min":185679,"max":538468,"mean":305579.75,"median":249086},"brian":{"duration":1148048,"min":144592,"max":495012,"mean":287012,"median":254222},"brendon":{"duration":1285135,"min":146963,"max":811851,"mean":321283.75,"median":163160.5}},{"n":8000,"shane":{"duration":1527701,"min":358320,"max":403357,"mean":381925.25,"median":383012},"brian":{"duration":1416295,"min":342518,"max":379259,"mean":354073.75,"median":347259},"brendon":{"duration":1374418,"min":304592,"max":380444,"mean":343604.5,"median":344691}},{"n":16000,"shane":{"duration":4000786,"min":895604,"max":1258665,"mean":1000196.5,"median":923258.5},"brian":{"duration":4133920,"min":930369,"max":1166220,"mean":1033480,"median":1018665.5},"brendon":{"duration":2780047,"min":636444,"max":811061,"mean":695011.75,"median":666271}},{"n":32000,"shane":{"duration":10655987,"min":2377083,"max":3013132,"mean":2663996.75,"median":2632886},"brian":{"duration":9931445,"min":2304788,"max":2603058,"mean":2482861.25,"median":2511799.5},"brendon":{"duration":5677820,"min":1282764,"max":1533628,"mean":1419455,"median":1430714}},{"n":64000,"shane":{"duration":25612218,"min":5817673,"max":7185374,"mean":6403054.5,"median":6304585.5},"brian":{"duration":25474341,"min":5577475,"max":7779152,"mean":6368585.25,"median":6058857},"brendon":{"duration":10405124,"min":2531948,"max":2716836,"mean":2601281,"median":2578170}},{"n":128000,"shane":{"duration":64402887,"min":15846302,"max":16538845,"mean":16100721.75,"median":16008870},"brian":{"duration":62829357,"min":15317315,"max":16167487,"mean":15707339.25,"median":15672277.5},"brendon":{"duration":31929246,"min":6593967,"max":11753468,"mean":7982311.5,"median":6790905.5}},{"n":256000,"shane":{"duration":160686821,"min":39180200,"max":41862666,"mean":40171705.25,"median":39821977.5},"brian":{"duration":159383910,"min":38474621,"max":41121137,"mean":39845977.5,"median":39894076},"brendon":{"duration":73110036,"min":15265957,"max":22876813,"mean":18277509,"median":17483633}},{"n":512000,"shane":{"duration":418013924,"min":102411730,"max":108272464,"mean":104503481,"median":103664865},"brian":{"duration":416756048,"min":102053805,"max":106145849,"mean":104189012,"median":104278197},"brendon":{"duration":134862063,"min":32203024,"max":37825931,"mean":33715515.75,"median":32416554}},{"n":1024000,"shane":{"duration":1109911178,"min":270195433,"max":287582079,"mean":277477794.5,"median":276066833},"brian":{"duration":1085386173,"min":266174105,"max":281329445,"mean":271346543.25,"median":268941311.5},"brendon":{"duration":348340131,"min":81009681,"max":101524818,"mean":87085032.75,"median":82902816}},{"n":2048000,"shane":{"duration":2860547720,"min":705866225,"max":723911833,"mean":715136930,"median":715384831},"brian":{"duration":2839239301,"min":704445980,"max":714752338,"mean":709809825.25,"median":710020491.5},"brendon":{"duration":763324329,"min":180309514,"max":197828111,"mean":190831082.25,"median":192593352}},{"n":4096000,"shane":{"duration":7650285847,"min":1889667687,"max":1943191771,"mean":1912571461.75,"median":1908713194.5},"brian":{"duration":7557834401,"min":1876495159,"max":1903762682,"mean":1889458600.25,"median":1888788280},"brendon":{"duration":1762704478,"min":394696619,"max":478855333,"mean":440676119.5,"median":444576263}},{"n":8192000,"shane":{"duration":21349657264,"min":5306908871,"max":5385464037,"mean":5337414316,"median":5328642178},"brian":{"duration":21101684817,"min":5114935173,"max":5399211773,"mean":5275421204.25,"median":5293768935.5},"brendon":{"duration":3282242036,"min":774815872,"max":897000813,"mean":820560509,"median":805212675.5}}];
+//    var serverData = [{"n":1000,"shane":{"duration":2474433,"min":346686,"max":992901,"mean":618608.25,"median":567423},"brian":{"duration":1168703,"min":114277,"max":457999,"mean":292175.75,"median":298213.5},"brendon":{"duration":473366,"min":77799,"max":230913,"mean":118341.5,"median":82327}},{"n":2000,"shane":{"duration":490977,"min":119547,"max":129095,"mean":122744.25,"median":121167.5},"brian":{"duration":423268,"min":89156,"max":143403,"mean":105817,"median":95354.5},"brendon":{"duration":1790767,"min":156256,"max":1097686,"mean":447691.75,"median":268412.5}},{"n":4000,"shane":{"duration":1592749,"min":271373,"max":541229,"mean":398187.25,"median":390073.5},"brian":{"duration":1033594,"min":156730,"max":386892,"mean":258398.5,"median":244986},"brendon":{"duration":281749,"min":67679,"max":77938,"mean":70437.25,"median":68066}},{"n":8000,"shane":{"duration":1718868,"min":426489,"max":434377,"mean":429717,"median":429001},"brian":{"duration":1528905,"min":378004,"max":392050,"mean":382226.25,"median":379425.5},"brendon":{"duration":844493,"min":181974,"max":224454,"mean":211123.25,"median":219032.5}},{"n":16000,"shane":{"duration":4381433,"min":1038597,"max":1154538,"mean":1095358.25,"median":1094149},"brian":{"duration":3759895,"min":936339,"max":947835,"mean":939973.75,"median":937860.5},"brendon":{"duration":1941277,"min":286846,"max":913652,"mean":485319.25,"median":370389.5}},{"n":32000,"shane":{"duration":10117047,"min":2519847,"max":2554877,"mean":2529261.75,"median":2521161.5},"brian":{"duration":9337753,"min":2329687,"max":2340986,"mean":2334438.25,"median":2333540},"brendon":{"duration":2627993,"min":586741,"max":716016,"mean":656998.25,"median":662618}},{"n":64000,"shane":{"duration":25247315,"min":6275613,"max":6350609,"mean":6311828.75,"median":6310546.5},"brian":{"duration":23643980,"min":5906397,"max":5917153,"mean":5910995,"median":5910215},"brendon":{"duration":4930623,"min":1217518,"max":1262090,"mean":1232655.75,"median":1225507.5}},{"n":128000,"shane":{"duration":63603598,"min":15796823,"max":16025717,"mean":15900899.5,"median":15890529},"brian":{"duration":60292924,"min":15052358,"max":15099325,"mean":15073231,"median":15070620.5},"brendon":{"duration":22280478,"min":3539893,"max":7980835,"mean":5570119.5,"median":5379875}},{"n":256000,"shane":{"duration":161760141,"min":40309480,"max":40578534,"mean":40440035.25,"median":40436063.5},"brian":{"duration":155807299,"min":38830370,"max":39058606,"mean":38951824.75,"median":38959161.5},"brendon":{"duration":39777264,"min":8376197,"max":14158104,"mean":9944316,"median":8621481.5}},{"n":512000,"shane":{"duration":420293416,"min":103810693,"max":107403212,"mean":105073354,"median":104539755.5},"brian":{"duration":405692704,"min":100906398,"max":101894617,"mean":101423176,"median":101445844.5},"brendon":{"duration":73801309,"min":14528987,"max":23895757,"mean":18450327.25,"median":17688282.5}},{"n":1024000,"shane":{"duration":1079474794,"min":269557858,"max":270185094,"mean":269868698.5,"median":269865921},"brian":{"duration":1053901900,"min":263327460,"max":263596654,"mean":263475475,"median":263488893},"brendon":{"duration":161417432,"min":33321442,"max":45174662,"mean":40354358,"median":41460664}},{"n":2048000,"shane":{"duration":2832576770,"min":706584712,"max":711785773,"mean":708144192.5,"median":707103142.5},"brian":{"duration":2791521533,"min":693464198,"max":705598291,"mean":697880383.25,"median":696229522},"brendon":{"duration":463507128,"min":109557203,"max":129781616,"mean":115876782,"median":112084154.5}},{"n":4096000,"shane":{"duration":7463532935,"min":1865119625,"max":1866655766,"mean":1865883233.75,"median":1865878772},"brian":{"duration":7392305882,"min":1837727303,"max":1852711342,"mean":1848076470.5,"median":1850933618.5},"brendon":{"duration":986288169,"min":185819913,"max":287643491,"mean":246572042.25,"median":256412382.5}},{"n":8192000,"shane":{"duration":19848754976,"min":4958563516,"max":4966778430,"mean":4962188744,"median":4961706515},"brian":{"duration":19631813307,"min":4901916205,"max":4915287342,"mean":4907953326.75,"median":4907304880},"brendon":{"duration":1835711476,"min":341036761,"max":515928333,"mean":458927869,"median":489373191}}];
+    var serverData = [{"n":1000,"mthd_n":{"duration":1851579,"min":285568,"max":948200,"mean":462894.75,"median":308905.5},"mthd_half":{"duration":2416344,"min":162658,"max":1923249,"mean":604086,"median":165218.5},"mthd_sqrt":{"duration":1163314,"min":56184,"max":427512,"mean":290828.5,"median":339809},"mthd_sqrt_odds":{"duration":1100919,"min":113862,"max":391808,"mean":275229.75,"median":297624.5},"mthd_sieve":{"duration":528152,"min":79116,"max":279555,"mean":132038,"median":84740.5}},{"n":2000,"mthd_n":{"duration":3934659,"min":977717,"max":990584,"mean":983664.75,"median":983179},"mthd_half":{"duration":2154743,"min":534297,"max":542834,"mean":538685.75,"median":538806},"mthd_sqrt":{"duration":487552,"min":118357,"max":126215,"mean":121888,"median":121490},"mthd_sqrt_odds":{"duration":363458,"min":88905,"max":96522,"mean":90864.5,"median":89015.5},"mthd_sieve":{"duration":1931724,"min":36423,"max":1480154,"mean":482931,"median":207573.5}},{"n":4000,"mthd_n":{"duration":14144180,"min":3429140,"max":3714458,"mean":3536045,"median":3500291},"mthd_half":{"duration":7906673,"min":1760591,"max":2485091,"mean":1976668.25,"median":1830495.5},"mthd_sqrt":{"duration":1155367,"min":187998,"max":494986,"mean":288841.75,"median":236191.5},"mthd_sqrt_odds":{"duration":1088193,"min":156608,"max":400577,"mean":272048.25,"median":265504},"mthd_sieve":{"duration":283349,"min":68338,"max":76671,"mean":70837.25,"median":69170}},{"n":8000,"mthd_n":{"duration":50771886,"min":12567551,"max":12833010,"mean":12692971.5,"median":12685662.5},"mthd_half":{"duration":25558075,"min":6379451,"max":6399150,"mean":6389518.75,"median":6389737},"mthd_sqrt":{"duration":1752280,"min":432779,"max":447967,"mean":438070,"median":435767},"mthd_sqrt_odds":{"duration":1551460,"min":384143,"max":393339,"mean":387865,"median":386989},"mthd_sieve":{"duration":865456,"min":147330,"max":317173,"mean":216364,"median":200476.5}},{"n":16000,"mthd_n":{"duration":186832689,"min":46654125,"max":46810165,"mean":46708172.25,"median":46684199.5},"mthd_half":{"duration":94224711,"min":23543670,"max":23570212,"mean":23556177.75,"median":23555414.5},"mthd_sqrt":{"duration":4235586,"min":1054925,"max":1067242,"mean":1058896.5,"median":1056709.5},"mthd_sqrt_odds":{"duration":3913957,"min":953604,"max":1040731,"mean":978489.25,"median":959811},"mthd_sieve":{"duration":1390272,"min":284042,"max":529057,"mean":347568,"median":288586.5}},{"n":32000,"mthd_n":{"duration":686414583,"min":171481012,"max":171941748,"mean":171603645.75,"median":171495911.5},"mthd_half":{"duration":346117260,"min":86183837,"max":87509095,"mean":86529315,"median":86212164},"mthd_sqrt":{"duration":10106664,"min":2522761,"max":2537096,"mean":2526666,"median":2523403.5},"mthd_sqrt_odds":{"duration":9341069,"min":2330067,"max":2346950,"mean":2335267.25,"median":2332026},"mthd_sieve":{"duration":2799368,"min":621501,"max":797668,"mean":699842,"median":690099.5}},{"n":64000,"mthd_n":{"duration":2579907091,"min":644847584,"max":645160941,"mean":644976772.75,"median":644949283},"mthd_half":{"duration":1294184300,"min":323500974,"max":323615086,"mean":323546075,"median":323534120},"mthd_sqrt":{"duration":25959350,"min":6292005,"max":7048254,"mean":6489837.5,"median":6309545.5},"mthd_sqrt_odds":{"duration":23898042,"min":5934767,"max":6089698,"mean":5974510.5,"median":5936788.5},"mthd_sieve":{"duration":5116902,"min":1224485,"max":1412588,"mean":1279225.5,"median":1239914.5}},{"n":128000,"mthd_n":{"duration":9667929953,"min":2416297438,"max":2418098271,"mean":2416982488.25,"median":2416767122},"mthd_half":{"duration":4843962979,"min":1210511935,"max":1211647213,"mean":1210990744.75,"median":1210901915.5},"mthd_sqrt":{"duration":63731978,"min":15812643,"max":16176113,"mean":15932994.5,"median":15871611},"mthd_sqrt_odds":{"duration":60791521,"min":15102263,"max":15277754,"mean":15197880.25,"median":15205752},"mthd_sieve":{"duration":25315959,"min":4465884,"max":9321169,"mean":6328989.75,"median":5764453}},{"n":256000,"mthd_n":{"duration":36454175894,"min":9109837779,"max":9116623924,"mean":9113543973.5,"median":9113857095.5},"mthd_half":{"duration":18250299288,"min":4561760248,"max":4563407814,"mean":4562574822,"median":4562565613},"mthd_sqrt":{"duration":162734483,"min":40662560,"max":40718924,"mean":40683620.75,"median":40676499.5},"mthd_sqrt_odds":{"duration":156315315,"min":39000460,"max":39149476,"mean":39078828.75,"median":39082689.5},"mthd_sieve":{"duration":43052188,"min":8228546,"max":17922102,"mean":10763047,"median":8450770}},{"n":512000,"mthd_n":{"duration":137729390434,"min":34427598056,"max":34442721803,"mean":34432347608.5,"median":34429535287.5},"mthd_half":{"duration":68934090209,"min":17227857847,"max":17246276410,"mean":17233522552.25,"median":17229977976},"mthd_sqrt":{"duration":419396151,"min":104710700,"max":105013667,"mean":104849037.75,"median":104835892},"mthd_sqrt_odds":{"duration":404917553,"min":100914712,"max":101614473,"mean":101229388.25,"median":101194184},"mthd_sieve":{"duration":78976170,"min":15073548,"max":24852050,"mean":19744042.5,"median":19525286}}];
+    var laptopData = [{"n":1000,"mthd_n":{"duration":1605923,"min":284049,"max":730073,"mean":401480.75,"median":295900.5},"mthd_half":{"duration":1413529,"min":164345,"max":869135,"mean":353382.25,"median":190024.5},"mthd_sqrt":{"duration":947752,"min":45432,"max":477629,"mean":236938,"median":212345.5},"mthd_sqrt_odds":{"duration":946172,"min":45037,"max":380839,"mean":236543,"median":260148},"mthd_sieve":{"duration":950913,"min":141827,"max":481975,"mean":237728.25,"median":163555.5}},{"n":2000,"mthd_n":{"duration":3949427,"min":934715,"max":1067060,"mean":987356.75,"median":973826},"mthd_half":{"duration":2481776,"min":591802,"max":684642,"mean":620444,"median":602666},"mthd_sqrt":{"duration":444444,"min":98765,"max":129975,"mean":111111,"median":107852},"mthd_sqrt_odds":{"duration":524642,"min":92840,"max":178173,"mean":131160.5,"median":126814.5},"mthd_sieve":{"duration":2206021,"min":92444,"max":1214813,"mean":551505.25,"median":449382}},{"n":4000,"mthd_n":{"duration":15440969,"min":3343798,"max":4072291,"mean":3860242.25,"median":4012440},"mthd_half":{"duration":9758013,"min":1762763,"max":3118218,"mean":2439503.25,"median":2438516},"mthd_sqrt":{"duration":1337677,"min":246914,"max":551900,"mean":334419.25,"median":269431.5},"mthd_sqrt_odds":{"duration":1032689,"min":144197,"max":354765,"mean":258172.25,"median":266863.5},"mthd_sieve":{"duration":674369,"min":151309,"max":189234,"mean":168592.25,"median":166913}},{"n":8000,"mthd_n":{"duration":47513227,"min":11676036,"max":12236627,"mean":11878306.75,"median":11800282},"mthd_half":{"duration":26355723,"min":6222610,"max":6898165,"mean":6588930.75,"median":6617474},"mthd_sqrt":{"duration":1518220,"min":361086,"max":432987,"mean":379555,"median":362073.5},"mthd_sqrt_odds":{"duration":1439207,"min":346073,"max":396246,"mean":359801.75,"median":348444},"mthd_sieve":{"duration":1692443,"min":332642,"max":621827,"mean":423110.75,"median":368987}},{"n":16000,"mthd_n":{"duration":178169073,"min":42958566,"max":46253378,"mean":44542268.25,"median":44478564.5},"mthd_half":{"duration":99478399,"min":23626243,"max":25929845,"mean":24869599.75,"median":24961155.5},"mthd_sqrt":{"duration":3934810,"min":958814,"max":1004245,"mean":983702.5,"median":985875.5},"mthd_sqrt_odds":{"duration":3643255,"min":890073,"max":934715,"mean":910813.75,"median":909233.5},"mthd_sieve":{"duration":2881576,"min":671999,"max":832789,"mean":720394,"median":688394}},{"n":32000,"mthd_n":{"duration":646767037,"min":158670430,"max":167748937,"mean":161691759.25,"median":160173835},"mthd_half":{"duration":365287864,"min":89086314,"max":92617767,"mean":91321966,"median":91791891.5},"mthd_sqrt":{"duration":10481370,"min":2344689,"max":3135996,"mean":2620342.5,"median":2500342.5},"mthd_sqrt_odds":{"duration":9134212,"min":2198516,"max":2340738,"mean":2283553,"median":2297479},"mthd_sieve":{"duration":6772536,"min":1565233,"max":1861924,"mean":1693134,"median":1672689.5}},{"n":64000,"mthd_n":{"duration":2460537528,"min":609150488,"max":623109582,"mean":615134382,"median":614138729},"mthd_half":{"duration":1380357475,"min":341914854,"max":347894106,"mean":345089368.75,"median":345274257.5},"mthd_sqrt":{"duration":24603231,"min":5702710,"max":6666264,"mean":6150807.75,"median":6117128.5},"mthd_sqrt_odds":{"duration":24391873,"min":5637129,"max":6402758,"mean":6097968.25,"median":6175993},"mthd_sieve":{"duration":12030802,"min":2782022,"max":3455601,"mean":3007700.5,"median":2896589.5}},{"n":128000,"mthd_n":{"duration":9353413507,"min":2302617715,"max":2373972100,"mean":2338353376.75,"median":2338411846},"mthd_half":{"duration":5161967611,"min":1269321163,"max":1337146860,"mean":1290491902.75,"median":1277749794},"mthd_sqrt":{"duration":64365751,"min":14936081,"max":16665264,"mean":16091437.75,"median":16382203},"mthd_sqrt_odds":{"duration":64128320,"min":15619933,"max":16259932,"mean":16032080,"median":16124227.5},"mthd_sieve":{"duration":35756204,"min":7898064,"max":11704085,"mean":8939051,"median":8077027.5}},{"n":256000,"mthd_n":{"duration":35020927977,"min":8636889320,"max":8921094415,"mean":8755231994.25,"median":8731472121},"mthd_half":{"duration":19155541544,"min":4761757517,"max":4805275095,"mean":4788885386,"median":4794254466},"mthd_sqrt":{"duration":167437629,"min":40730816,"max":43120937,"mean":41859407.25,"median":41792938},"mthd_sqrt_odds":{"duration":160921093,"min":38591164,"max":41023557,"mean":40230273.25,"median":40653186},"mthd_sieve":{"duration":78606919,"min":17860719,"max":24176169,"mean":19651729.75,"median":18285015.5}},{"n":512000,"mthd_n":{"duration":131628268688,"min":32501875948,"max":33550587002,"mean":32907067172,"median":32787902869},"mthd_half":{"duration":73879960241,"min":18398190935,"max":18524672169,"mean":18469990060.25,"median":18478548568.5},"mthd_sqrt":{"duration":420843354,"min":103278495,"max":106055775,"mean":105210838.5,"median":105754542},"mthd_sqrt_odds":{"duration":413194570,"min":100735485,"max":105546146,"mean":103298642.5,"median":103456469.5},"mthd_sieve":{"duration":164975213,"min":35773982,"max":45725576,"mean":41243803.25,"median":41737827.5}}];
+
+    function process (data) {
+//        var categories = [];
+        var series = {};
+
+//        // Init categories
+//        for (var i in data) {
+//            var test = data[i];
+//
+//            categories.push(test.n);
+//        }
+
+        for (var i in data) {
+            var test = data[i];
+            for (var p in test) {
+                var n = test["n"];
+
+                if (p !== "n") {
+                    if (! series.hasOwnProperty(p)) {
+                        series[p] = {
+                            name: p,
+                            data: []
+                        };
+                    }
+
+//                    series[p].data.push([
+//                        test[p].min,
+//                        test[p].min,
+//                        test[p].mean,
+//                        test[p].max,
+//                        test[p].max
+//                    ]);
+                    series[p].data.push([
+                        n,
+                        test[p].mean
+                    ]);
+                }
+            }
+        }
+
+        var finalSeries = [];
+
+        for (var i in series) {
+            finalSeries.push(series[i]);
+        }
+
+        return {
+//            categories: categories,
+            series: finalSeries
+        };
+    }
+
+    var serverStuff = process(serverData);
+    console.log(serverStuff);
+//    var laptopStuff = process(laptopData);
+
+    Highcharts.chart('container', {
+
+        chart: {
+            type: 'line'
+        },
+
+        title: {
+            text: 'Methods to Calculate Primes'
+        },
+
+        legend: {
+            enabled: true
+        },
+
+        xAxis: {
+//            categories: serverStuff.categories,
+            title: {
+                text: 'n (Primes up to n)'
+            }
+        },
+
+        yAxis: {
+            title: {
+                text: 'Nanoseconds'
+            }
+        },
+
+        plotOptions: {
+            boxplot: {
+                fillColor: '#F0F0E0',
+                lineWidth: 2,
+                medianColor: '#0C5DA5',
+                medianWidth: 3,
+                stemColor: '#A63400',
+                stemDashStyle: 'dot',
+                stemWidth: 1,
+                whiskerColor: '#3D9200',
+                whiskerLength: '20%',
+                whiskerWidth: 3
+            }
+        },
+
+        series: serverStuff.series
+
+    });
+</script>
+</body>
+</html>
